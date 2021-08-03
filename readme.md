@@ -5,10 +5,10 @@ This allows local containers to use build artifacts without having to copy them 
 
 This is can be used as a simple alternative to something like Artifactory for local development.
 
-To use it, start the nginx server by running start_server.sh, and then use wget to grab the desired file or artifact.
+To use it, start the nginx server by running `start_server.sh`, and then use wget to grab the desired file or artifact.
 For example: wget localhost:1010/
-To add new artifacts, simply place them into the directory where the start_server.sh script is being run.
-The stop_server.sh script can be used to stop the server.
+To add new artifacts, simply place them into the directory where the `start_server.sh` script is being run.
+The `stop_server.sh` script can be used to stop the server.
 
 ## Additional Info
 
@@ -20,4 +20,8 @@ To build the image, run the following:
 ```bash
 docker build . --tag fileserver:latest
 ```
+
+Update 8/03/21: It's unknown for sure whether the 1 or 2 GB file size is still an issue or not.
+However, it has been discovered that as currently configured, subdirectories can't be used.
+Some additional work would be to figure out how to allow subdirectories to be served up for better file organization.
 
